@@ -8,7 +8,12 @@
     "skipLibCheck": true,
     "jsx": "react-jsx",
     "rootDir": "src",
-    "baseUrl": "src",
+    "baseUrl": "./",
+    "paths": {
+      "src/*": [
+        "./src/*"
+      ],
+    },
     "allowJs": true,
     "skipDefaultLibCheck": true,
     "allowSyntheticDefaultImports": true,
