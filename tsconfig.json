@@ -9,6 +9,9 @@
     "jsx": "react-jsx",
     "rootDir": "src",
     "baseUrl": "src",
+    "paths": {
+      "@/*":["*"]
+    },
     "allowJs": true,
     "skipDefaultLibCheck": true,
     "allowSyntheticDefaultImports": true,
