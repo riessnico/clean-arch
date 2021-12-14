@@ -1,4 +1,4 @@
-import { HttpPostClient } from './protocols/http/http-post-client'
+import { HttpPostClient } from '../../protocols/http/http-post-client'
 import { RemoteAuthentication } from './remote-authentication'
 
 describe('RemoteAuthentication', () => {
