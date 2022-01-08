@@ -27,7 +27,7 @@
       {
         "trailingComa": true,
         "singleQuote": true,
-        "semiColon": false,
+        "semi": false,
         "endOfLine": "auto"
       }
     ],
