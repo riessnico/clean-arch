@@ -2,21 +2,41 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
     }
   },
   "extends": [
     "standard-with-typescript",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
   ],
-  "plugins": ["react"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "D:/Devzitos/clean-react/tsconfig.json"
   },
   "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComa": true,
+        "singleQuote": true,
+        "semiColon": false,
+        "endOfLine": "auto"
+      }
+    ],
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/prop-types": "off"
