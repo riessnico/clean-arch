@@ -19,7 +19,7 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "prettier",
+    "prettier"
   ],
   "parserOptions": {
     "project": "D:/Devzitos/clean-react/tsconfig.json"
@@ -60,6 +60,7 @@
         "endOfLine": "auto"
       }
     ],
+    "@typescript-eslint/no-explicit-any": 0,
     "testing-library/render-result-naming-convention": "off",
     "testing-library/prefer-screen-queries": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
