@@ -16,7 +16,8 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "prettier"
+    "prettier",
+    "jest"
   ],
   "parserOptions": {
     "project": "D:/Devzitos/clean-react/tsconfig.json"
