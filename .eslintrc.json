@@ -1,4 +1,7 @@
 {
+  "globals": {
+    "jest": true
+  },
   "settings": {
     "react": {
       "version": "detect"
@@ -17,11 +20,36 @@
     "react",
     "@typescript-eslint",
     "prettier",
-    "jest"
   ],
   "parserOptions": {
     "project": "D:/Devzitos/clean-react/tsconfig.json"
   },
+  "overrides": [
+    {
+      "files": [
+        "*.spec.ts",
+        "*.spec.tsx"
+      ],
+      "env": {
+        "jest": true
+      },
+      "plugins": [
+        "jest"
+      ],
+      "extends": [
+        "plugin:jest/recommended"
+      ]
+    },
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": [
+        "plugin:testing-library/react"
+      ]
+    }
+  ],
   "rules": {
     "prettier/prettier": [
       "error",
@@ -32,6 +60,8 @@
         "endOfLine": "auto"
       }
     ],
+    "testing-library/render-result-naming-convention": "off",
+    "testing-library/prefer-screen-queries": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "no-use-before-define": "off",
