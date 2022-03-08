@@ -1,76 +1,50 @@
 {
-  "globals": {
-    "jest": true
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    },
-    "import/resolver": {
-      "typescript": {}
-    }
+  "env": {
+    "browser": true,
+    "es2021": true
   },
   "extends": [
-    "standard-with-typescript",
+    "standard",
     "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:import/typescript"
   ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
   "plugins": [
     "react",
+    "react-hooks",
     "@typescript-eslint",
     "prettier"
   ],
-  "parserOptions": {
-    "project": "D:/Devzitos/clean-react/tsconfig.json"
-  },
-  "overrides": [
-    {
-      "files": [
-        "*.spec.ts",
-        "*.spec.tsx"
-      ],
-      "env": {
-        "jest": true
-      },
-      "plugins": [
-        "jest"
-      ],
-      "extends": [
-        "plugin:jest/recommended"
-      ]
-    },
-    {
-      "files": [
-        "**/__tests__/**/*.[jt]s?(x)",
-        "**/?(*.)+(spec|test).[jt]s?(x)"
-      ],
-      "extends": [
-        "plugin:testing-library/react"
-      ]
-    }
-  ],
   "rules": {
+    "import/no-unresolved": "error",
+    "linebreak-style": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
     "prettier/prettier": [
       "error",
       {
-        "trailingComa": true,
-        "singleQuote": true,
-        "semi": false,
         "endOfLine": "auto"
       }
-    ],
-    "@typescript-eslint/no-explicit-any": 0,
-    "testing-library/render-result-naming-convention": "off",
-    "testing-library/prefer-screen-queries": "off",
-    "@typescript-eslint/consistent-type-definitions": "off",
-    "@typescript-eslint/strict-boolean-expressions": "off",
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": [
-      "error"
-    ],
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "react/prop-types": "off"
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    },
+    "react": {
+      "version": "latest"
+    }
   }
 }
