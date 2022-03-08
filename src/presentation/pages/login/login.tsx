@@ -19,22 +19,17 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
     email: '',
     password: '',
     emailError: '',
-    passwordError: 'Campo obrigatório',
+    passwordError: '',
     mainError: '',
   });
 
   useEffect(() => {
-    setState({
-      ...state,
+    setState((prevState) => ({
+      ...prevState,
       emailError: validation.validate('email', state.email),
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.email]);
-
-  useEffect(() => {
-    validation.validate('password', state.password);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.password]);
+      passwordError: validation.validate('password', state.password),
+    }));
+  }, [state.email, state.password, validation]);
 
   return (
     <div className={Styles.login}>
