@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import Styles from './login-styles.scss'
+import React, { useState, useEffect } from 'react';
+import Styles from './login-styles.scss';
 import {
   Footer,
   Input,
   FormStatus,
   LoginHeader,
-} from '@/presentation/components/'
-import FormContext from '@/presentation/contexts/form/form-context'
-import { Validation } from '@/presentation/protocols/validation'
+} from '@/presentation/components/';
+import FormContext from '@/presentation/contexts/form/form-context';
+import { Validation } from '@/presentation/protocols/validation';
 
 type Props = {
-  validation?: Validation
-}
+  validation?: Validation;
+};
 
 const Login: React.FC<Props> = ({ validation }: Props) => {
   const [state, setState] = useState({
@@ -21,15 +21,17 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
     emailError: 'Campo obrigatório',
     passwordError: 'Campo obrigatório',
     mainError: '',
-  })
+  });
 
   useEffect(() => {
-    validation.validate('email', state.email)
-  }, [state.email])
+    validation.validate('email', state.email);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.email]);
 
   useEffect(() => {
-    validation.validate('password', state.password)
-  }, [state.password])
+    validation.validate('password', state.password);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.password]);
 
   return (
     <div className={Styles.login}>
@@ -58,7 +60,7 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
 
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
