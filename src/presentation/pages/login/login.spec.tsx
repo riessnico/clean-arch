@@ -5,6 +5,8 @@ import {
   cleanup,
   waitFor,
 } from '@testing-library/react';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import Login from './login';
 import { ValidationStub } from '@/presentation/test/';
 import faker from 'faker';
@@ -21,12 +23,16 @@ type SutParams = {
   validationError: string;
 };
 
+const history = createMemoryHistory();
+
 const makeSut = (params?: SutParams): SutTypes => {
   const validationStub = new ValidationStub();
   const authenticationSpy = new AuthenticationSpy();
   validationStub.errorMessage = params?.validationError;
   const sut = render(
-    <Login validation={validationStub} authentication={authenticationSpy} />
+    <Router history={history}>
+      <Login validation={validationStub} authentication={authenticationSpy} />
+    </Router>
   );
   return {
     sut,
@@ -197,5 +203,13 @@ describe('Login component', () => {
       'accessToken',
       authenticationSpy.account.accessToken
     );
+  });
+
+  test('should got to signup page', () => {
+    const { sut } = makeSut();
+    const signup = sut.getByTestId('signup');
+    fireEvent.click(signup);
+    expect(history.length).toBe(2);
+    expect(history.location.pathname).toBe('/signup');
   });
 });
